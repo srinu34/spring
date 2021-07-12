@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Airprice.com - airline tickets, cheap flights</title>
+	<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript"src="post.js"></script>
+	<style>
+		#image { 
+height: 100px;  
+width: 100px;   
+display: block;  
+margin-left: auto;  
+margin-right: auto;  
+border: 8px ridge blue;  
+padding: 5px;  
+} 
+body {
+  /* The image used */
+
+ background-image: url("airline11.jpg");
+
+background-attachment:fixed;
+background-size:cover;
+background-repeat:no-repeat
+
+}
+h1{
+	margin-top: 50px;
+}
+#addForm{
+	width: 700px;
+}
+#center {  
+text-align: center;
+}
+     </style>
+
+</head>
+<body>
+             <div align="center">
+<img src = "Logo.jpg" id ="image">  
+	<h1>SIGN UP ..!</h1>
+<div class="container" style="margin: 50px 0 0 0">
+		<!--<button id="add" type="button" class="btn btn-success">add</button>-->
+
+
+		<div id="addTrack" class="row col-md-6">
+			<!--<h3 style="color: blue" align="center">Add User</h3>-->
+			<form id="addForm"  name="myForm" 
+				style="background-color: #7FA7B0; color: white; padding: 20px 20px 20px 20px">
+				<div class="form-group">
+					<label for="name">Name:</label> <input type="text"
+						class="form-control" id="uname" name="Name" placeholder="Enter Name" />
+				</div>
+				<div class="form-group">
+					<label for="age">Age:</label> <input type="text"
+						class="form-control" id="uage" name="Age"
+						placeholder="Enter Age" />
+				</div>
+                    <div class="form-group">
+					<label for="gender">Gender:</label> <input type="text"
+						class="form-control" id="ugender" name="Gender"
+						placeholder="Enter Gender" />
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label> <input type="password"
+						class="form-control" id="password" name="password"
+						placeholder="Enter Password" />
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+
+			<div id="postTrackDiv" style="margin: 10px 0px 10px 0px;"></div>
+		</div>
+
+
+</body>
+</html>

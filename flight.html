@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Airprice.com - airline tickets, cheap flights</title>
+	<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="common.css">
+	 <script type="text/javascript" src="flight.js"></script>
+     <style>
+         td{
+             width: 120px;
+         }
+      
+#image { 
+height: 100px;  
+width: 100px;   
+display: block;  
+margin-left: auto;  
+margin-right: auto;  
+border: 8px ridge blue;  
+padding: 5px;  
+} 
+   body {
+  /* The image used */
+
+ background-image: url("airline10.jpg");
+
+background-attachment:fixed;
+background-size:cover;
+background-repeat:no-repeat
+
+}
+#center {  
+text-align: center;
+     </style>
+
+</head>
+<body>
+	<img src = "Logo.jpg" id ="image">  
+	<div align="center">
+	<h1>Admin Management</h1>
+    <div class="container" style="margin: 40px 0 0 0 ">
+		<button id="add" type="button" class="btn btn-success" style="margin:10px 20px 10px 10px">add a flight</button>
+		<button id="get" type="button" class="btn btn-success" style="margin:10px 20px 10px 10px">get flight details</button>
+		<button id="update" type="button" class="btn btn-success" style="margin:10px 20px 10px 10px">update a flight</button>
+		<button id="delete" type="button" class="btn btn-danger" style="margin:10px 20px 10px 10px">delete a flight</button>
+
+
+         <!--  --------------------------UPDATE TRACK------------------------------------------->
+		<div id="updateTrack" class="row col-md-6" style="display: none">
+			<h3>Here to Edit Info of Track:</h3>
+			<form id="updateForm"
+				style='background-color: #7FA7B0; color: white; padding: 20px 20px 20px 20px'>
+				<div class="form-group">
+					<label for="fId">flight id</label> <input type="number"
+						class="form-control" id="updateFlightId" placeholder="Enter Id" />
+				</div>
+				<div class="form-group">
+					<label for="source">Source:</label> <input type="text"
+						class="form-control" id="updateSrc" placeholder="Enter new source" />
+				</div>
+                <div class="form-group">
+					<label for="destination">Destination:</label> <input type="text"
+						class="form-control" id="updateDest" placeholder="Enter new destination" />
+				</div>
+
+
+				<button type="submit" class="btn btn-default">Update</button>
+			</form>
+
+			<div id="putTrackDiv" style="margin: 10px 0px 10px 0px;"></div>
+
+		</div>
+
+
+        <!----------------------------- Get Track -------------------------------------------------->
+
+        <div id="getTrack" style="margin: 10px 0px 10px 0px ; display:none">
+            <input type="text" id="searchBar"></input>
+            <table id="getTable" style="background-color:#FFFFE0;">
+                <thead style="background-color:#BDB76B;color:#ffffff;">
+                <tr style="background-color:#BDB76B;color:#ffffff;">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Time</th>
+                <th>Total Seats</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+
+            </table>
+            
+        </div>
+
+         <!--------------------------------delete track ------------------------------------------------>
+         <div id="delete_msg"></div>
+        <div id="deleteTrack" style="margin: 10px 0px 10px 0px ; display:none">
+            <form id="deleteForm" name = "deleteForm" 
+            style="background-color: #7FA7B0; color: white; padding: 20px 20px 20px 20px">
+            <div class="form-group">
+                <label for="flightId">Flight Id</label>
+                <input type="text" class="form-control" id="deleteFlightId" placeholder="enter flight id"></input>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+
+        <div id="getTrack" style="margin: 10px 0px 10px 0px ; display:none">
+
+            <div class="form-group">
+            <input type="text" class="form-control" id="search" placeholder="search">
+            </div>
+
+            <div class="form-group">
+
+
+            </div>
+
+
+        </div>
+
+        <!--------------------------Add Flight ------------------------------------------->
+
+        <div id="postTrackDiv"></div>
+        <div id="addTrack" style="margin: 10px 0px 10px 0px ; display:none">
+            <form id="addForm" name="myForm"
+            style="background-color: #7FA7B0; color: white; padding: 20px 20px 20px 20px">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="flightName">Flight Name</label>
+                  <input type="text" class="form-control" id="flightName" placeholder="Flight Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="totalSeats">Seats</label>
+                  <input type="text" class="form-control" id="totalSeats" placeholder="Total Seats">
+                </div>
+             </div>
+
+             <div class="form-row">
+                 <div class="form-group col-md-6">
+                    <label for="source">From</label>
+                    <input type="text" class="form-control" id="flightSource" placeholder="From Place" required>
+                 </div>
+                 <div class="form-group col-md-6">
+                    <label for="destination">To</label>
+                    <input type="text" class="form-control" id="flightDestination" placeholder="To Place" required>
+                 </div>
+             </div>
+
+             <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="departureDate">Departure Date:</label>
+                    <input type="text" class="form-control" id="departDate" name="departDate">
+                </div>
+                <!-- 
+                   <div class="form-group col-md-4">
+                    <label for="appt">Departure Time:</label>
+                    <input type="text" class="form-control" id="appt" name="appt">
+                </div>
+             </div> -->
+
+
+             <div class="form-row">
+                <div class="form-group col-md-6">
+                   <label for="totalFirstClass">First Class Seats</label>
+                   <input type="text" class="form-control" id="totalFCS" placeholder="First Class Seats">
+                </div>
+                <div class="form-group col-md-6">
+                   <label for="firstClassPrice">First Class Ticket Price</label>
+                   <input type="text" class="form-control" id="priceFC" placeholder="First Class Price">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                   <label for="totalEconomy">Economy Seats</label>
+                   <input type="text" class="form-control" id="totalES" placeholder="Economy Seats">
+                </div>
+                <div class="form-group col-md-6">
+                   <label for="economyPrice">Economy Ticket Price</label>
+                   <input type="text" class="form-control" id="priceEC" placeholder="Economy Price">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                   <label for="totalBusiness">Buisiness Class Seats</label>
+                   <input type="text" class="form-control" id="totalBS" placeholder="Buisiness Class Seats">
+                </div>
+                <div class="form-group col-md-6">
+                   <label for="businessPrice">Buisiness Class Ticket Price</label>
+                   <input type="text" class="form-control" id="priceBS" placeholder="Buisiness Class Price">
+                </div>
+            </div>
+        
+
+
+            <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+        
+        </div>
+    </div>
+
+
+</body>>
